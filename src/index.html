@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>GeoJSON Network Trace</title>
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css' rel='stylesheet' />
+  <!-- <link rel="stylesheet" href="https://unpkg.com/chota"> -->
+  <style>
+    * {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    html, body {
+      margin: 0;
+    }
+    header {
+      top: 0;
+      background: rgba(255,255,255,0.95);
+      border-radius: 3px;
+      padding: 0 0.5rem 1rem;
+      position: absolute;
+      z-index: 2;
+    }
+    header > div {
+      width: auto;
+      max-width: 700px;
+    }
+    h1, p {
+      margin: 0 0.5rem;
+    }
+    #map {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+    }
+
+    @keyframes loading {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loading {
+      color: transparent !important;
+      min-height: .8rem;
+      pointer-events: none;
+      position: absolute;
+      /* background-color: #ffffff4a; */
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      height: 100vh;
+      width: 100%;
+    }
+
+    .loading::after {
+      animation: loading 500ms infinite linear;
+      border: .1rem solid #333;
+      border-radius: 50%;
+      border-right-color: transparent;
+      border-top-color: transparent;
+      content: "";
+      display: block;
+      height: .8rem;
+      left: 50%;
+      margin-left: -.4rem;
+      margin-top: -.4rem;
+      position: absolute;
+      top: 50%;
+      width: .8rem;
+      z-index: 1;
+    }
+
+    .loading.loading-lg {
+      min-height: 2rem;
+    }
+
+    .loading.loading-lg::after {
+      height: 4rem;
+      margin-left: -.8rem;
+      margin-top: -.8rem;
+      width: 4rem;
+    }
+
+    #buttons {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      /* z-index: 3; */
+      background: transparent;
+    }
+    #buttons>button {
+      width: 280px;
+      margin: 2px;
+      border-radius: 3px;
+      padding: 10px;
+      background: white;
+    }
+    .mapboxgl-ctrl-top-right .mapboxgl-ctrl-group {
+        border-radius: 3px;
+      }
+    @media screen and (max-width: 600px) {
+      .mapboxgl-ctrl-top-right {
+        bottom: 0;
+        left: 0;
+        top: unset;
+        right: unset;
+      }
+      .mapboxgl-ctrl-top-right button {
+        width: 100vw!important;
+        border-radius: 0;
+      }
+      .mapboxgl-ctrl-top-right .mapboxgl-ctrl-group {
+        border-radius: 0;
+      }
+      .mapboxgl-ctrl-group:not(:empty) {
+        box-shadow: none;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <div>
+      <h1>GeoJSON Network Trace</h1>
+      <p>This is a simple network trace tool to perform upstream and downstream traces on a networked dataset (where all nodes exist on all lines). If a lateral does not have an node on a main line, that lateral will not be found. Adding that functionality adds significant overhead to the tool.</p>
+    </div>
+  </header>
+  <div id="map">
+    <div id="loading" class="loading-lg"></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+
+</html>
