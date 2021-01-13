@@ -4,7 +4,7 @@
   "description": "A GeoJSON Network tool for simple upstream and downstream network tracing.",
   "main": "geojson-precision.js",
   "scripts": {
-    "build": "parcel build src/index.html --out-dir docs --detailed-report --public-url ./geojson-network-control/",
+    "build": "parcel build src/index.html --out-dir docs --detailed-report --public-url /geojson-network-control/",
     "start": "parcel src/index.html --out-dir docs"
   },
   "repository": {
