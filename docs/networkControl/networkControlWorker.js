@@ -174,9 +174,7 @@ function networkBuild(lines, network, string) {
   if (tempFeatures.features.length > 0) {
     networkBuild(tempFeatures, network, direction);
   } else {
-    if (direction === "upstream" || direction === "laterals") {
-      console.log("network features:", networkTree.features.length);
-    }
+    // console.log("network features:", networkTree.features.length);
     console.log("network trace:", Date.now() - netowrkTimeCheck, "ms");
     self.postMessage(networkTree);
   }

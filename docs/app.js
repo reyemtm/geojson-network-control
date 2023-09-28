@@ -110,7 +110,7 @@ function buildMap(data) {
   // console.log(points)
   
   addLayer(map, 'points', 'circle', points, colors.dark, {stops: [[12,2.5], [22,8]]});
-  map.setFilter("points", ["!=", ["get", "class"], "Tap"]);
+  map.setFilter("points", ["!=", ["get", "class"], "Tap"])
 
   console.log('point data loaded')
 
