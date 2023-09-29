@@ -110,7 +110,7 @@ function buildMap(data) {
   // console.log(points)
   
   addLayer(map, 'points', 'circle', points, colors.dark, {stops: [[12,2.5], [22,8]]});
-  map.setFilter("points", ["!=", ["get", "class"], "Tap"])
+  map.setFilter("points", ["!=", ["get", "class"], "Tap"]);
 
   console.log('point data loaded')
 
@@ -136,7 +136,10 @@ function buildMap(data) {
   },600  )
 
   map.on('click', function() {
-    clearInterval(int)
+    clearInterval(int);
+    if (document.querySelector("#info")) {
+      document.querySelector("#info").remove()
+    }
   });
   document.querySelector("#networkControlBtn").addEventListener('click', function() {
     clearInterval(int)

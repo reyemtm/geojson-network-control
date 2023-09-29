@@ -136,7 +136,10 @@ function buildMap(data) {
   },600  )
 
   map.on('click', function() {
-    clearInterval(int)
+    clearInterval(int);
+    if (document.querySelector("#info")) {
+      document.querySelector("#info").remove()
+    }
   });
   document.querySelector("#networkControlBtn").addEventListener('click', function() {
     clearInterval(int)
