@@ -112,7 +112,20 @@
     .mapboxgl-ctrl-top-right .mapboxgl-ctrl-group {
         border-radius: 3px;
       }
+    #info {
+      position: absolute;
+      font-family: monospace;
+      font-style: italic;
+      bottom: 5px;
+      right: 5px;
+      z-index: 10;
+      color: white;
+      opacity: 0.5;
+    }
     @media screen and (max-width: 600px) {
+      #info {
+        display: none;
+      }
       .mapboxgl-ctrl-top-right {
         bottom: 0;
         left: 0;
@@ -150,17 +163,6 @@
     #networkControl > button:focus {
       background-color: rgba(255, 0, 255, 0.75)!important;
       color: white!important;
-    }
-
-    #info {
-      position: absolute;
-      font-family: monospace;
-      font-style: italic;
-      bottom: 5px;
-      right: 5px;
-      z-index: 10;
-      color: white;
-      opacity: 0.5;
     }
 
   </style>
